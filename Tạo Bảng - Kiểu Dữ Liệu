@@ -8,8 +8,16 @@
 */
 USE javasql;
 CREATE TABLE Student(
-	id varchar(20);
-    lop varchar(50);
-    ten varchar(50);
-    gpa float
+	id varchar(20) NOT NULL,
+    lop varchar(50),
+    ten varchar(50),
+    gpa float,
+PRIMARY KEY (id)
 );
+// DESCRIBE student; Hiện cấu trúc bảng
+// SELECT*FROM student; Kiểm tra dữ liệu trong bảng
+INSERT INTO student VALUES
+('001','CNTT1','NGUYEN VAN A',2.8),
+('002','CNTT2','NGUYEN VAN B',3.5),
+('003','CNTT3','NGUYEN VAN C',2.9),
+('004','CNTT4','NGUYEN VAN D',3.1);
