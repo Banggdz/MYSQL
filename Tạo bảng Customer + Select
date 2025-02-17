@@ -1,0 +1,25 @@
+USE javasql;
+CREATE TABLE Customer(
+	id VARCHAR(20) NOT NULL,
+    name VARCHAR(255),
+    address VARCHAR(255),
+    birth DATE,
+    PRIMARY KEY(id)
+);
+INSERT INTO customer VALUES
+('CU01','Dang hang','ha noi','2005-09-09'),
+('CU02','Thanh hang','qn','2005-09-02'),
+('CU03','Khanh Linh','hl','2004-02-09');
+SELECT ID,LOP
+FROM student;
+SELECT *
+FROM CUSTOMER;
+SELECT ID AS MaSV,LOP AS ClassName,ten,gpa as Diem
+FROM student;
+SELECT*
+FROM student
+WHERE gpa >=2.7;
+//WHERE gpa >=2.7 AND gpa <=2.9;
+//WHERE gpa BETWEEN 2.1 AND 2.9;
+//WHERE LOP='CNTT1' OR LOP='CNTT2';
+//WHERE lop IN('CNTT1','CNTT2','CNTT3');
