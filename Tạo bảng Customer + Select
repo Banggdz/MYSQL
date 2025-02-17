@@ -4,7 +4,8 @@ CREATE TABLE Customer(
     name VARCHAR(255),
     address VARCHAR(255),
     birth DATE,
-    PRIMARY KEY(id)
+    PRIMARY KEY(id),
+FOREIGN KEY (customerID) REFERENCES student(id)
 );
 INSERT INTO customer VALUES
 ('CU01','Dang hang','ha noi','2005-09-09'),
@@ -12,8 +13,7 @@ INSERT INTO customer VALUES
 ('CU03','Khanh Linh','hl','2004-02-09');
 SELECT ID,LOP
 FROM student;
-SELECT *
-FROM CUSTOMER;
+SELECT *FROM CUSTOMER;
 SELECT ID AS MaSV,LOP AS ClassName,ten,gpa as Diem
 FROM student;
 SELECT*
@@ -23,3 +23,15 @@ WHERE gpa >=2.7;
 //WHERE gpa BETWEEN 2.1 AND 2.9;
 //WHERE LOP='CNTT1' OR LOP='CNTT2';
 //WHERE lop IN('CNTT1','CNTT2','CNTT3');
+
+SELECT* FROM customer
+WHERE LENGTH(CustomerName)>=25
+WHERE STRCMP(CustomerName,'H')>0; //Thứ tự từ điển lớn hơn H;
+WHERE LEFT(CustomerName,3)="HUN"  //3 chữ cái đầu tiên từ bên trái
+WHERE SUBSTR(CustomerName,2,2)="AU";
+WHERE YEAR(OrderDate)=1996 AND MONTH(OrderDate)=11` AND DAY(OrderDate)=11;
+WHERE DATE(orderdate)="1996-11-11";
+WHERE
+WHERE
+WHERE
+WHERE
