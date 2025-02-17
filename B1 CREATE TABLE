@@ -1,0 +1,15 @@
+#CREATE DATABASE javasql;
+#DROP DATABASE javasql;
+/*
+	Số nguyên : int
+    Số thực : float,double,decimal,numeric;
+    Chuỗi : char,varchar;
+    Ngày : Date,time
+*/
+USE javasql;
+CREATE TABLE Student(
+	id varchar(20);
+    lop varchar(50);
+    ten varchar(50);
+    gpa float
+);
