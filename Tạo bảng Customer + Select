@@ -31,7 +31,9 @@ WHERE LEFT(CustomerName,3)="HUN"  //3 chữ cái đầu tiên từ bên trái
 WHERE SUBSTR(CustomerName,2,2)="AU";
 WHERE YEAR(OrderDate)=1996 AND MONTH(OrderDate)=11` AND DAY(OrderDate)=11;
 WHERE DATE(orderdate)="1996-11-11";
-WHERE
-WHERE
-WHERE
-WHERE
+//%:dai dien cho nhieu ki tu
+WHERE customername like "%re" kt=re o cuoi
+WHERE customername like "%re%" co kt=re o giua  
+WHERE customername like "_a%" kt=re o vt t2
+WHERE customername like "__a%" kt=re o vt t3
+WHERE customername like "%a_" kt=re o vt t2 tu cuoi ve
