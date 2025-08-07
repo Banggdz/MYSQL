@@ -1,0 +1,13 @@
+SELECT * FROM customers
+WHERE 
+-- LENGTH(customername)>=25
+ -- STRCMP(customername,"H")>0
+--  LEFT(customername,3)="hun"
+-- RIGHT(customername,2)="en"
+-- substr(customername,2,2)="AU"
+-- customername like "Hu%"
+customername like "__a%"
+-- SELECT * FROM Orders
+-- where
+-- YEAR(orderdate)=1996 and MONTH(orderdate)=11 and day(orderdate)=11;
+-- Date(orderdate)="1996-11-11"
