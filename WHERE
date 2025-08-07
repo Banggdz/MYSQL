@@ -39,23 +39,53 @@ chẵn
 WHERE city = "london" and MOD(CustomerID,2)=0
 
 5.Liệt kê những khách hàng có tên bắt đầu bằng chữ A
-
+WHERE CustomerName like "a%"
 
 6. Liệt kê những khách hàng có tên bắt đầu bằng chữ A, B hoặc D
+WHERE CustomerName LIKE 'A%'
+   OR CustomerName LIKE 'B%'
+   OR CustomerName LIKE 'D%';
+
 7. Liệt kê những khách hàng có tên bắt đầu bằng chữ A và kết thúc bằng chữ e
+WHERE CustomerName like "%e"
+
 8. Liệt kê những khách hàng có tên có độ dài tối thiểu là 25
+WHERE length(CustomerName)>=25
+
 9. Liệt kê những khách hàng có tên kết thúc bởi “sen”
+WHERE CustomerName like "%sen"
+
 10. Liệt kê những khách hàng có tên bắt đầu bởi “cen”
+WHERE CustomerName like "cen%"
+
 11. Liệt kê những khách hàng có tên có thứ tự từ điển lớn hơn “Harani Canes”
+WHERE strcmp(CustomerName, 'Harani Canes')=1
+WHERE CustomerName>'Harani Canes'
+
 12.Liệt kê nhân viên sinh năm 1968
+WHERE YEAR(BirthDate)=1968
 13. Liệt kê nhân viên sinh vào tháng 2
+WHERE month(BirthDate)=2
 14. Liệt kê nhân viên sinh ngày mồng 2
+WHERE DAY(BirthDate)=2
+
 15.Liệt kê khách hàng trong tên chứa cụm “ar”
+WHERE CustomerName like '%ar%'
+
 16.Liệt kê khách hàng có tên bắt đầu bằng “B” và kết thúc bằng “e”
+WHERE CustomerName like 'b%e'
+
 17. Liệt kê khách hàng có chữ cái thứ 2 trong tên là chữ “r”
+WHERE CustomerName like '_r%'
+
 18. Liệt kê khách hàng có chữ cái thứ 3 từ cuối về trong tên là chữ “h”
+WHERE CustomerName like '%h__'
+
 19. Liệt kê khách hàng có tên bắt đầu bằng 1 trong các chữ cái ‘a’, ‘b’, ‘h’, ‘d’
+WHERE CustomerName regexp '^[abhd]'
+
 20. Liệt kê khách hàng có tên kết thúc bằng 1 trong các chữ cái ‘a’, ‘b’, ‘h’, ‘d’
+WHERE CustomerName regexp '[abhd]$'
 
 21.Liệt kê những khách hàng và thông tin đơn hàng đã đặt hàng vào tháng 7 năm
 1996
