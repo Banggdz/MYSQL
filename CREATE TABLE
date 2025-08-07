@@ -1,0 +1,44 @@
+# CREATE DATABASE JavaSQL;-- 
+ #DROP DATABASE JavaSQL;
+-- TABLE STUDENT;
+ /*
+ CREATE TABLE tablleName(
+	col1 datatype,
+    col2 datatytpe,
+    ...
+	PRIMARY KEY (colx)
+ );
+ */
+USE JavaSQL;
+--  CREATE TABLE Student(
+--  id VARCHAR(20) NOT NULL,
+--  lop VARCHAR(50),
+--  ten VARCHAR(50),
+--  gpa float,
+--  primary key (id)
+--  );
+-- INSERT INTO Student VALUES
+-- ('001', 'CNTT1', 'Nguyen Van Nam', 2.8),
+-- ('002', 'CNTT2', 'Pham Van Long', 3.2),
+-- ('003', 'DTVT1', 'Huynh Van Phuoc', 2.1),
+-- ('004', 'CNTT2', 'Pham Thi Hang', 2.6);
+--  CREATE TABLE Customer(
+-- 	id VARCHAR(20) NOT NULL,
+-- 	name VARCHAR(250),
+-- 	address VARCHAR(250),
+-- 	birth DATE,
+--  primary key (id)
+--  );
+-- INSERT INTO customer VALUES
+-- ('CUS01', 'Dang Phuong Nam', 'Thanh Oai-Ha Noi', '1999-01-01'),
+-- ('CUS02', 'Hoang Dinh Nam', 'Phuc Tho-Ha Noi', '2002-05-05');
+
+-- SELECT id,name,birth
+-- FROM customer;
+-- SELECT *
+-- FROM student;
+-- SELECT id AS MaSV, lop AS className,ten AS fullName
+-- FROM student;
+SELECT *
+FROM student
+WHERE gpa>2.6
