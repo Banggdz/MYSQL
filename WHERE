@@ -1,3 +1,4 @@
+USE NORTHWIND;
 SELECT * FROM customers
 WHERE 
 -- LENGTH(customername)>=25
@@ -5,9 +6,67 @@ WHERE
 --  LEFT(customername,3)="hun"
 -- RIGHT(customername,2)="en"
 -- substr(customername,2,2)="AU"
+bắt đầu bằng hu
 -- customername like "Hu%"
+kết thúc bằng e
+-- customername like "%e"
+kí tự thứ 3 là a
 customername like "__a%"
 -- SELECT * FROM Orders
 -- where
 -- YEAR(orderdate)=1996 and MONTH(orderdate)=11 and day(orderdate)=11;
 -- Date(orderdate)="1996-11-11"
+
+1.Truy vấn các thành phố khác nhau xuất hiện trong bảng Customers
+SELECT DISTINCT City
+FROM Customers;
+
+2.Liệt kê những khách hàng sống tại Berlin trong bảng Customers
+SELECT *
+FROM customers
+WHERE city like 'berlin'
+--SELECT * FROM Customers WHERE City = 'Berlin';
+
+3.Liệt kê những khách hàng không sống tại Berlin trong bảng Customers
+SELECT *
+FROM customers
+WHERE strcmp(city,"Berlin")!=0
+WHERE city <> "berlin"
+WHERE NOT city = "berlin";
+
+4.Liệt kê những khách hàng sống tại thành phố London và có mã khách hàng là số
+chẵn
+WHERE city = "london" and MOD(CustomerID,2)=0
+
+5.Liệt kê những khách hàng có tên bắt đầu bằng chữ A
+
+
+6. Liệt kê những khách hàng có tên bắt đầu bằng chữ A, B hoặc D
+7. Liệt kê những khách hàng có tên bắt đầu bằng chữ A và kết thúc bằng chữ e
+8. Liệt kê những khách hàng có tên có độ dài tối thiểu là 25
+9. Liệt kê những khách hàng có tên kết thúc bởi “sen”
+10. Liệt kê những khách hàng có tên bắt đầu bởi “cen”
+11. Liệt kê những khách hàng có tên có thứ tự từ điển lớn hơn “Harani Canes”
+12.Liệt kê nhân viên sinh năm 1968
+13. Liệt kê nhân viên sinh vào tháng 2
+14. Liệt kê nhân viên sinh ngày mồng 2
+15.Liệt kê khách hàng trong tên chứa cụm “ar”
+16.Liệt kê khách hàng có tên bắt đầu bằng “B” và kết thúc bằng “e”
+17. Liệt kê khách hàng có chữ cái thứ 2 trong tên là chữ “r”
+18. Liệt kê khách hàng có chữ cái thứ 3 từ cuối về trong tên là chữ “h”
+19. Liệt kê khách hàng có tên bắt đầu bằng 1 trong các chữ cái ‘a’, ‘b’, ‘h’, ‘d’
+20. Liệt kê khách hàng có tên kết thúc bằng 1 trong các chữ cái ‘a’, ‘b’, ‘h’, ‘d’
+
+21.Liệt kê những khách hàng và thông tin đơn hàng đã đặt hàng vào tháng 7 năm
+1996
+22. Liệt kê những khách hàng và thông tin đơn hàng đã đặt hàng vào tháng 12 năm
+1996 và sống tại Mỹ
+23. Liệt kê những khách hàng và thông tin đơn hàng đã đặt hàng sau ngày 09-10-
+1996 và sống tại London
+24. Liệt kê những khách hàng đã đặt hàng vào tháng 10 năm 1996 và được ship bởi
+shipper có ID là 3
+25. Liệt kê những khách hàng và thông tin đơn hàng được xử lý bởi nhân viên có
+ID là 4
+26.Liệt kê thông tin những đơn hàng được xử lý bởi nhân viên có FirstName là
+“Nancy”
+27.Liệt kê những sản phẩm được mua trong đơn hàng có ID là 10249
