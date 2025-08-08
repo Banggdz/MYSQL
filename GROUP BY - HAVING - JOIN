@@ -1,0 +1,30 @@
+USE NORTHWIND;
+SELECT Count(customerID),country
+from customers
+group by country
+
+USE NORTHWIND;
+SELECT MAX(price),SupplierID
+from products
+group by SupplierID
+
+USE NORTHWIND;
+SELECT COUNT(customerID),Country
+from customers
+group by Country
+Having count(customerID)>=5
+
+-- SELECT
+-- FROM
+-- WHERE
+-- GROUP BY
+-- HAVING
+-- ORDER BY
+
+USE NORTHWIND;
+SELECT *
+FROM Employees
+-- INNER JOIN Orders
+-- LEFT JOIN Orders
+CROSS JOIN Orders
+ON Employees.EmployeeID=Orders.EmployeeID
