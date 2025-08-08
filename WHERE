@@ -16,7 +16,11 @@ customername like "__a%"
 -- where
 -- YEAR(orderdate)=1996 and MONTH(orderdate)=11 and day(orderdate)=11;
 -- Date(orderdate)="1996-11-11"
-
+USE NORTHWIND;
+SELECT * 
+FROM orderdetails,products
+WHERE orderdetails.productID=products.productID 
+order by QUANTITY asc, PRODUCTNAME desc;
 1.Truy vấn các thành phố khác nhau xuất hiện trong bảng Customers
 SELECT DISTINCT City
 FROM Customers;
