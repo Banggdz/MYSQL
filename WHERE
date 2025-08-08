@@ -89,14 +89,31 @@ WHERE CustomerName regexp '[abhd]$'
 
 21.Liệt kê những khách hàng và thông tin đơn hàng đã đặt hàng vào tháng 7 năm
 1996
+FROM customers,orders 
+Where customers.customerid=orders.customerid and YEAR(OrderDate)=1996 and MONTH(OrderDate)=7
+
 22. Liệt kê những khách hàng và thông tin đơn hàng đã đặt hàng vào tháng 12 năm
 1996 và sống tại Mỹ
+Where customers.customerid=orders.customerid and YEAR(OrderDate)=1996 and MONTH(OrderDate)=7 and Country="USA"
+
 23. Liệt kê những khách hàng và thông tin đơn hàng đã đặt hàng sau ngày 09-10-
 1996 và sống tại London
+Where customers.customerid=orders.customerid and DATE(OrderDate)>'1996-10-08'
+
 24. Liệt kê những khách hàng đã đặt hàng vào tháng 10 năm 1996 và được ship bởi
 shipper có ID là 3
+Where customers.customerid=orders.customerid AND orders.ShipperID=shippers.ShipperID and YEAR(OrderDate)=1996 and MONTH(OrderDate)=10 and SHIPPERS.ShipperID=2
+
 25. Liệt kê những khách hàng và thông tin đơn hàng được xử lý bởi nhân viên có
 ID là 4
+FROM CUSTOMERS,employees,orders
+Where customers.customerid=orders.customerid  AND Orders.EmployeeID = Employees.EmployeeID   AND Employees.EmployeeID = 4;
+
 26.Liệt kê thông tin những đơn hàng được xử lý bởi nhân viên có FirstName là
 “Nancy”
+FROM employees,orders
+Where Orders.EmployeeID = Employees.EmployeeID   AND Employees.firstname = 'Nancy'; 
+
 27.Liệt kê những sản phẩm được mua trong đơn hàng có ID là 10249
+FROM orderdetails,products
+WHERE orderdetails.productID=products.productID and orderdetails.orderID=10249
