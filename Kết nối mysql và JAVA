@@ -1,0 +1,62 @@
+Tải: https://dev.mysql.com/downloads/connector/j/ platform/independence
+add JAR/FODER trên vào folder libraries trên app java
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class test {
+    private static String url = "jdbc:mysql://localhost:3306/northwind?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static String username = "root";
+    private static String password = "";
+
+    public static Connection getConnection() {
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url, username, password);
+            System.out.println("✅ Kết nối MySQL thành công!");
+        } catch (SQLException e) {
+            System.err.println("❌ Lỗi kết nối MySQL:");
+            e.printStackTrace();
+        }
+        return conn;
+    }
+
+    public static void main(String[] args) {
+        Connection conn = getConnection();
+        if (conn != null) {
+            try {
+                conn.close();
+                System.out.println("🔌 Đã đóng kết nối.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+hoặc
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class test {
+    private static String url = "jdbc:mysql://localhost:3306/northwind?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static String username = "root";
+    private static String password = "a0903298117";
+
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return (Connection)DriverManager.getConnection(url,username,password);
+    }
+
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Connection conn = getConnection();
+        if (conn == null) {
+            System.out.println("🔌 Failed");
+        }
+        else{
+            System.out.println("Successfully");
+        }
+    }
+}
+
