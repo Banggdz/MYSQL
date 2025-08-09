@@ -1,0 +1,46 @@
+-- CREATE DATABASE DKMH
+USE dkmh;
+CREATE TABLE SINHVIEN(
+	mssv varchar(25) NOT NULL,
+    ten nvarchar(50) NOT NULL,
+    ngay_sinh date NOT NULL,
+    gpa float NOT NULL,
+    primary key(mssv)
+);
+INSERT INTO SINHVIEN
+VALUES('SV001', 'Nguyen Van Manh', '2000-09-20', 'Bien Hoa', 3.1),
+  ('SV002', 'Nguyen Xuan Tu', '2002-10-17', 'TP HCM', 2.8),
+  ('SV003', 'Pham Xuan Minh', '2002-11-21', 'Dak Lak', 3.0),
+  ('SV004', 'Nghiem Thanh Long', '2001-09-20', 'Ha Noi', 2.4),
+  ('SV005', 'Pham Thuy Linh', '2001-12-12', 'Bien Hoa', 3.1);
+CREATE TABLE MONHOC(
+	ma_mon_hoc varchar(50) not null primary key,
+    ten_mon_hoc varchar(50) not null,
+    so_tin_chi int not null
+);
+INSERT INTO MonHoc
+VALUES
+  ('IT01', 'Ki Thuat Lap Trinh', 3),
+  ('IT02', 'DSA', 3),
+  ('BAS111', 'Giai Tich 2', 2),
+  ('BAS121', 'Giai Tich 3', 2),
+  ('IT112', 'Lap Trinh C++', 3),
+  ('BAS112', 'He Dieu Hanh', 3);
+  
+CREATE TABLE REGISTER(
+	ma_dang_ky varchar(50),
+    mssv varchar(50),
+    ma_mon_hoc varchar(50),
+    PRIMARY KEY(ma_dang_ky),
+    FOREIGN KEY(mssv) REFERENCES SinhVien(mssv),
+    FOREIGN KEY(ma_mon_hoc) REFERENCES MonHoc(ma_mon_hoc)
+)
+INSERT INTO Register
+VALUES
+  ('11', 'SV002', 'IT01'),
+  ('12', 'SV001', 'IT01'),
+  ('13', 'SV002', 'BAS112'),
+  ('16', 'SV004', 'IT02'),
+  ('19', 'SV002', 'BAS112'),
+  ('20', 'SV004', 'IT112'),
+  ('31', 'SV004', 'IT112');
