@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class test {
     private static String url = "jdbc:mysql://localhost:3306/northwind?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static String username = "root";
-    private static String password = "a0903298117";
+    private static String password = "x";
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -84,7 +84,7 @@ import java.util.Scanner;
 public class test {
     private static String url = "jdbc:mysql://localhost:3306/northwind?autoReconnect=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static String username = "root";
-    private static String password = "a0903298117";
+    private static String password = "x";
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
