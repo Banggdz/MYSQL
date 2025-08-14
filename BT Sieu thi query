@@ -1,3 +1,73 @@
+
+-- 1 
+Select *
+from bophan
+inner join mathang
+on bophan.mabp=mathang.mabp
+where mathang.tenmh='Thanh Long'
+--
+SELECT b.mabp, b.tenbp
+FROM bophan b
+JOIN mathang m ON b.mabp = m.mabp
+WHERE m.tenmh='Thanh Long';
+
+
+-- 2
+select mathang.tenmh, mathang.masmh	
+from mathang
+where mathang.mabp = 'BP001';
+
+-- 3
+SELECT m.tenmh, m.mabp, cc.mancc, nc.tenncc
+FROM (mathang m
+INNER JOIN cungcap cc ON m.masmh = cc.masmh)
+INNER JOIN nguoicungcap nc ON cc.mancc = nc.mancc
+WHERE m.masmh = 'MH01';
+
+-- 4
+select nguoicungcap.mancc, nguoicungcap.tenncc, count(nguoicungcap.mancc)
+from nguoicungcap
+inner join cungcap on nguoicungcap.mancc = cungcap.mancc
+group by nguoicungcap.mancc, nguoicungcap.tenncc
+order by count(nguoicungcap.mancc) desc, nguoicungcap.mancc desc;
+
+-- 5
+Select count(*),sum(soluong),masmh,sohieuddh 
+from chitietdonhang
+where sohieuddh='DDH01'
+group by masmh,sohieuddh
+-----
+SELECT COUNT(*) AS SoMatHang, SUM(soluong) AS TongSoLuong
+FROM chitietdonhang
+WHERE sohieuddh = 'DDH01';
+
+-- 6
+
+SELECT KhachHang.tenkh, donhang.sohieuddh, chitietdonhang.masmh, MatHang.tenmh, chitietdonhang.soluong
+FROM KhachHang
+INNER JOIN donhang ON KhachHang.makh = donhang.makh
+INNER JOIN chitietdonhang ON donhang.sohieuddh = chitietdonhang.sohieuddh
+INNER JOIN MatHang ON chitietdonhang.masmh = MatHang.masmh
+WHERE KhachHang.makh = 'KH002';
+
+-- 9
+SELECT khachhang.makh, khachhang.tenkh, donhang.sohieuddh 
+FROM khachhang
+INNER JOIN donhang ON khachhang.makh = donhang.makh
+WHERE MONTH(donhang.ngaydh) = 12
+AND YEAR(donhang.ngaydh) = 2023;
+
+-- 10
+
+-- 13
+SELECT KhachHang.tenkh, KhachHang.diachikh
+FROM KhachHang
+JOIN donhang ON KhachHang.makh = donhang.makh
+WHERE donhang.sohieuddh IN ('DDH07', 'DDH08', 'DDH02')
+GROUP BY KhachHang.makh;
+
+
+-------------------------
 Bài tập phần thiết kế DB cho Siêu Thị:
 
 1.Liệt kê tên bộ phận, mã bộ phận có mặt hàng Thanh Long
