@@ -32,7 +32,7 @@ CREATE TABLE cungcap(
     foreign key(masmh) references mathang(masmh),
     foreign key(mancc) references nguoicungcap(mancc)
 );
-CREATE TABLE khackhang(
+CREATE TABLE khachhang(
 	mankh varchar(25) not null primary key,
     tenkh nvarchar(250) not null,
     diachikh nvarchar(250) not null
@@ -41,7 +41,7 @@ CREATE TABLE donhang(
 	sohieuddh varchar(25) not null primary key,
     ngaydh date not null,
     mankh varchar(25) not null,
-	foreign key(mankh) references khackhang(mankh)
+	foreign key(mankh) references khachhang(mankh)
 );
 -- thuc the trung gian donhang-mathang
 CREATE TABLE chitietdonhang(
@@ -53,6 +53,83 @@ CREATE TABLE chitietdonhang(
     foreign key(masmh) references mathang(masmh),
     foreign key(sohieuddh) references donhang(sohieuddh)
 );
+INSERT INTO bophan
+VALUES ('BP001', 'Bộ phận đồ hải sản'),
+       ('BP002', 'Bộ phận đồ kỹ thuật'),
+       ('BP003', 'Bộ phận trái cây tươi'),
+       ('BP004', 'Bộ phận quần áo');
+
+INSERT INTO nhanvien
+VALUES('NV001', 'Pham Van Tu', 20000000, null, 'BP001'),
+      ('NV002', 'Pham Van Tam', 10000000, null, 'BP002'),
+      ('NV003', 'Nguyen Tran Tuan Kiet', 15000000, null, 'BP001'),
+      ('NV004', 'Tran Lan Huong', 13750000, null, 'BP003'),
+      ('NV005', 'Vu Song Huong', 10000000, null, 'BP004'),
+      ('NV006', 'Nguyen Van Khoi', 10000000, null, 'BP002'),
+      ('NV07','Mac Van Khoa',1400000,null,'BP001');
+
+INSERT INTO mathang
+VALUES('MH01', 'Xoai cat tien', 'BP003'),
+      ('MH02', 'May khoan', 'BP002'),
+      ('MH03', 'Ao thun', 'BP004'),
+      ('MH04', 'Ao khoac', 'BP004'),
+      ('MH05', 'Ca Ngu', 'BP001'),
+      ('MH06', 'Bach tuoc', 'BP001'),
+      ('MH07', 'Thanh long', 'BP002'),
+      ('MH08', 'Dua ta', 'BP002'),
+      ('MH09', 'Dua hau', 'BP003');
+
+INSERT INTO nguoicungcap
+VALUES('NCC01','Pham Xuan Chi','Hai Phong'),
+      ('NCC02','Nguyen Xuan Loc','Ha Noi'),
+      ('NCC03','Nguyen Van Manh','TPHCM'),
+      ('NCC04','Nguyen Van Long','Ha Noi'),
+      ('NCC05','Pham Xuan Chi','Hai Phong'),
+      ('NCC06','Tran Quoc Co','Da Nang');
+
+INSERT INTO CungCap
+VALUES('001', 'MH01', 'NCC01', 5000),
+      ('002', 'MH01', 'NCC02', 4500),
+      ('003', 'MH02', 'NCC03', 3000),
+      ('004', 'MH03', 'NCC03', 2500),
+      ('005', 'MH03', 'NCC04', 5500),
+      ('006', 'MH04', 'NCC04', 4000),
+      ('007', 'MH05', 'NCC05', 3200),
+      ('008', 'MH05', 'NCC06', 1500),
+      ('009', 'MH06', 'NCC05', 1500),
+      ('010', 'MH07', 'NCC01', 2000),
+      ('011', 'MH08', 'NCC05', 5000),
+      ('012', 'MH09', 'NCC01', 5000);
+
+INSERT INTO khachhang
+VALUES('KH001','Pham Xuan Chi','Ha Noi'),
+      ('KH002','Nguyen Xuan Loc','Phu Tho'),
+      ('KH003','Nguyen Van Manh','TPHCM'),
+      ('KH004','Bao Van Long','Ha Noi'),
+      ('KH005','Pham Xuan Chi','Hai Phong'),
+      ('KH006','Tran Quoc Co','Da Nang');
+
+INSERT INTO donhang
+VALUES('DDH01', '2023-12-12', 'KH002'),
+      ('DDH02', '2023-12-15', 'KH002'),
+      ('DDH03', '2023-10-14', 'KH002'),
+      ('DDH04', '2023-12-12', 'KH003'),
+      ('DDH05', '2023-10-27', 'KH002'),
+      ('DDH06', '2023-08-18', 'KH003'),
+      ('DDH07', '2023-12-12', 'KH004'),
+      ('DDH08', '2023-10-30', 'KH003'),
+      ('DDH09', '2023-12-12', 'KH006');
+      
+INSERT INTO chitietdonhang
+VALUES (null, 5, 10000, 'DDH01', 'MH01'),
+       (null, 2, 7000, 'DDH01', 'MH05'),
+       (null, 3, 12000, 'DDH02', 'MH05'),
+       (null, 1, 15000, 'DDH02', 'MH03'),
+       (null, 5, 20000, 'DDH06', 'MH02'),
+       (null, 4, 5000, 'DDH01', 'MH09'),
+       (null, 3, 8000, 'DDH07', 'MH05'),
+       (null, 1, 11000, 'DDH07', 'MH03'),
+       (null, 1, 9000, 'DDH01', 'MH08');
 
 Một siêu thị có nhiều nhân viên. 
 Thông tin về nhân viên: MANV, TênNV, Luong. 
