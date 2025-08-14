@@ -1,0 +1,38 @@
+Bài tập phần thiết kế DB cho Siêu Thị:
+
+1.Liệt kê tên bộ phận, mã bộ phận có mặt hàng Thanh Long
+
+2.Liệt kê tên, mã mặt hàng do bộ phận BP001 quản lý.
+
+3.In ra TEN_MH, Ma_BP, MA_NGUOI_CUNG_CAP, TEN_NGUOI_CUNG_CAP của MH01.
+
+4.Sắp xếp nguoi_cung_cap theo thứ tự giảm dần số mặt hàng mà họ cung cấp nếu có 2 nguoi_cung_cap có số lượng mặt hàng cung cấp bằng nhau thì ai có mã MA_NGUOI_CUNG_CAP lớn hơn sẽ xếp trước.
+
+5.Đếm xem đơn hàng có mã DDH01có tổng bao nhiêu mặt hàng và tổng số lượng của tất cả mặt hàng là bao nhiêu cái.
+
+6.In ra TEN_KHACH_HANG, SO_HIEU_DON_HANG, MA_MH , TEN_MH, SoLuong mà khách hàng có mã là KH02 đã mua.
+khach hang
+don dat hang
+mat hang
+chi tiet ddh
+
+7. In ra tất cả MA_KHACH_HANG , TEN_KHACH_HANG, SO_HIEU_DON_HANG,Ngay_Dat_Hang của những khách hàng có địa chỉ ở Ha Noi.
+
+8.Đếm xem khách hàng có mã KH02 có tổng cộng bao nhiêu đơn hàng.
+
+9.In ra MA_KHACH_HANG , TEN_KHACH_HANG và SO_HIEU_DON_HANG của những khách hàng mua vào tháng 12 năm 2023
+KHACH HANG
+DON HANG
+
+10.Liệt kê tổng tiền mà khách hàng có mã KH02 đã trả để mua mặt hàng có mã MH01
+don hang
+chi tiet don hang 
+11.Tổng số lượng mà mặt hàng có mã MH01 được mua.
+12.Liệt kê MA_NCC và Ten_NCC cung cấp nhiều cung cấp có tên là May khoan.
+13.Liệt kê Tên , địa chỉ của những khách hàng sở hữu đơn hàng có 
+Sohieuddh là DDH07 hoặc DDH08 hoặc DDH02.
+14.Liệt kê Tên , địa chỉ và  số lượng đơn của  khách hàng sở hữu nhiều đơn hàng nhất.
+15.Liệt kê TenMH và tổng tất cả số lượng mà khách hàng đã mua mặt hàng có mã MH03
+
+KH01    nguyen xuan loc  
+KH03    nguyen xuan loc 
