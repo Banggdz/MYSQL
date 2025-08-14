@@ -1,0 +1,70 @@
+-- CREATE DATABASE sieuthi
+USE sieuthi;
+CREATE TABLE bophan(
+	mabp varchar(25) not null primary key,
+    tenbp nvarchar(250) not null
+);
+CREATE TABLE nhanvien(
+	manv varchar(25) not null primary key,
+    tennv varchar(250) not null,
+    luong int not null,
+    maql varchar(25),
+    mabp varchar(25) not null,
+	foreign key(mabp) references bophan(mabp)
+);
+CREATE TABLE mathang(
+	masmh varchar(25) not null primary key,
+    tenmh nvarchar(250) not null,
+    mabp varchar(25) not null,
+	foreign key(mabp) references bophan(mabp)
+);
+CREATE TABLE nguoicungcap(
+	mancc varchar(25) not null primary key,
+    tenncc nvarchar(250) not null,
+    diachincc nvarchar(250) not null
+);
+-- bang trung gian mathang-nguoicungcap
+CREATE TABLE cungcap(
+	macc varchar(25) not null primary key,
+    mancc varchar(25) not null,
+    masmh varchar(25) not null,
+    giacc int not null,
+    foreign key(masmh) references mathang(masmh),
+    foreign key(mancc) references nguoicungcap(mancc)
+);
+CREATE TABLE khackhang(
+	mankh varchar(25) not null primary key,
+    tenkh nvarchar(250) not null,
+    diachikh nvarchar(250) not null
+);
+CREATE TABLE donhang(
+	sohieuddh varchar(25) not null primary key,
+    ngaydh date not null,
+    mankh varchar(25) not null,
+	foreign key(mankh) references khackhang(mankh)
+);
+-- thuc the trung gian donhang-mathang
+CREATE TABLE chitietdonhang(
+	id int not null AUTO_INCREMENT primary key,
+    soluong int not null,
+    dongia int not null,
+    sohieuddh varchar(25) not null,
+    masmh varchar(25) not null,
+    foreign key(masmh) references mathang(masmh),
+    foreign key(sohieuddh) references donhang(sohieuddh)
+);
+
+Một siêu thị có nhiều nhân viên. 
+Thông tin về nhân viên: MANV, TênNV, Luong. 
+Mỗi nhân viên làm việc ở 1 bộ phận, 1 bộ phận có thể có nhiều nhân viên. 
+Thông tin về bộ phận: MaBP và TênBP. 
+Trong các nhân viên có người làm quản lý, một người chỉ quản lý tối đa 1 bộ phận, và 1 bộ phận chỉ có 1 người quản lý. 
+Ở 1 bộ phận có nhiều mặt hàng, nhưng 1 mặt hàng chỉ được đặt ở 1 bộ phận mà thôi. 
+Thông tin về mặt hàng: MSMH, TenMH. 
+1 mặt hàng do nhiều người cung cấp bán, 1 người cung cấp có thể cung cấp nhiều mặt hàng, mỗi mặt hàng sẽ có giá khác nhau. 
+Thông tin về người cung cấp: MaNCC.TenCC, Diachi. 
+Siêu thị có nhiều khách hàng. 
+Thông tin về khách hàng: MAKH, TenKH, Diachi. 
+Mỗi khách hàng có nhiều đơn đặt hàng nhưng 1 đơn đặt hàng thì chỉ có 1 khách hàng mà thôi. 
+Thông tin về đơn đặt hàng: SoHieuDDH,NgayDH. 
+Mỗi đơn đặt hàng bao gồm nhiều mặt hàng với mỗi mặt hàng có 1 số lượng mua và đơn giá.
