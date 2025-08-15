@@ -50,6 +50,20 @@ INNER JOIN chitietdonhang ON donhang.sohieuddh = chitietdonhang.sohieuddh
 INNER JOIN MatHang ON chitietdonhang.masmh = MatHang.masmh
 WHERE KhachHang.makh = 'KH002';
 
+--- 7
+
+Select *
+from khachhang kh
+join donhang dh on kh.makh=dh.makh
+where kh.diachikh='Ha NOI'
+
+--- 8
+
+Select count(dh.sohieuddh),kh.makh,kh.tenkh
+from khachhang kh
+join donhang dh on kh.makh=dh.makh
+where kh.makh='KH002'
+group by kh.makh,kh.tenkh
 -- 9
 SELECT khachhang.makh, khachhang.tenkh, donhang.sohieuddh 
 FROM khachhang
@@ -58,6 +72,11 @@ WHERE MONTH(donhang.ngaydh) = 12
 AND YEAR(donhang.ngaydh) = 2023;
 
 -- 10
+Select SUM(ctdh.dongia),dh.makh
+from chitietdonhang ctdh
+join donhang dh on ctdh.sohieuddh=dh.sohieuddh
+where ctdh.masmh='MH01'
+group by dh.makh
 
 -- 13
 SELECT KhachHang.tenkh, KhachHang.diachikh
