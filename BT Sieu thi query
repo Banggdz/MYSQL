@@ -1,4 +1,4 @@
-
+thiếu group by vẫn đúng nếu select chỉ chọn đc ra 1 dòng
 -- 1 
 Select *
 from bophan
@@ -72,11 +72,31 @@ WHERE MONTH(donhang.ngaydh) = 12
 AND YEAR(donhang.ngaydh) = 2023;
 
 -- 10
+thiếu
 Select SUM(ctdh.dongia),dh.makh
 from chitietdonhang ctdh
 join donhang dh on ctdh.sohieuddh=dh.sohieuddh
 where ctdh.masmh='MH01'
 group by dh.makh
+-
+Select sum(ct.dongia)
+from donhang dh 
+join chitietdonhang ct on ct.sohieuddh=dh.sohieuddh
+where ct.masmh='MH01' and dh.makh='KH002'
+
+-- 11
+Select 
+SUM(ct.soluong)
+from donhang dh 
+join chitietdonhang ct on ct.sohieuddh=dh.sohieuddh
+where ct.masmh='MH01'
+
+-- 12
+Select *
+from nguoicungcap ncc
+join cungcap cc on ncc.mancc=cc.mancc
+join mathang mh on cc.masmh=mh.masmh
+where mh.tenmh='May khoan'
 
 -- 13
 SELECT KhachHang.tenkh, KhachHang.diachikh
