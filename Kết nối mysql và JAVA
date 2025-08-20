@@ -60,3 +60,40 @@ public class test {
     }
 }
 
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Connection conn = getConnection();
+        conn.setAutoCommit(false);
+        if (conn == null) {
+            System.out.println("🔌 Failed");
+        }
+        else{
+try{  
+PreparedStatement stmt = conn.prepareStatement("INSERT INTO Customers VALUES (?, ?, ?, ?, ?, ?, ?)"); 
+
+Scanner sc= new Scanner(System.in);
+int numberOfCustomers = Integer.parseInt(sc.nextLine()); 
+for (int i = 0; i < numberOfCustomers; i++) { 
+    int id = Integer.parseInt(sc.nextLine()); 
+    String name = sc.nextLine(); 
+    String contactName = sc.nextLine(); 
+    String address = sc.nextLine(); 
+    String postalCode = sc.nextLine(); 
+    String city = sc.nextLine(); 
+    String country = sc.nextLine(); 
+    stmt.setInt(1, id); 
+    stmt.setString(2, name); 
+    stmt.setString(3, contactName); 
+    stmt.setString(4, address); 
+    stmt.setString(5, city); 
+    stmt.setString(6, postalCode); 
+    stmt.setString(7, country); 
+    stmt.executeUpdate(); }
+conn.commit();
+        }
+
+catch(Exception e){
+    System.out.println(e);
+    conn.rollback();
+          }
+       }
+    
